@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }: {
   imports = [
+    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     ./hardware-configuration.nix
   ];
 
@@ -14,6 +15,7 @@
 
   nixpkgs.config.allowUnfree = true;
   boot = {
+    boot.supportedFilesystems = [ "squashfs" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
