@@ -19,7 +19,7 @@
       generic-extlinux-compatible.enable = true;
     };
     #initrd.enable = false;
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems.zfs = lib.mkForce false;
   };
 
