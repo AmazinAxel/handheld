@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }: {
   imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     ./hardware-configuration.nix
   ];
 
@@ -19,7 +18,7 @@
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
-    #initrd.enable = false;
+    initrd.enable = false;
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems.zfs = lib.mkForce false;
   };
