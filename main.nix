@@ -29,7 +29,7 @@
     dtbSource = ./sun50i-h700-anbernic-rg35xx-h.dtb;
   };
 
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
 
   #boot.kernelPatches =
   #  [
