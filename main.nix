@@ -18,7 +18,7 @@
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
-    initrd.enable = false;
+    #initrd.enable = false;
     #kernelPackages = pkgs.linuxPackages_latest; # dont enable
   };
 
