@@ -17,12 +17,24 @@
   sdImage.compressImage = false;
 
   hardware.deviceTree = {
-    enable = true;
+    enable = false;
     name = "allwinner/h700-anbernic-rg35xxh.dtb";
-    path = ./sun50i-h700-anbernic-rg35xx-h.dtb;
+
+    package =
+      pkgs.runCommandCC "h700-dts" {
+        inherit (config.boot.kernelPackages.kernel) src;
+        nativeBuildInputs = [ pkgs.dtc ];
+      } ''
+        unpackPhase
+        cd "$sourceRoot"
+        DTS=arch/arm64/boot/dts/h700-anbernic-rg35xxh.dts
+        cp "${./sun50i-h700-anbernic-rg35xx-h.dtb}" "$DTS"
+        mkdir -p "$out/rockchip"
+        $CC -E -nostdinc -Iinclude -undef -D__DTS__ -x assembler-with-cpp "$DTS" | \
+          dtc -I dts -O dtb -@ -o "$out/allwinner/h700-anbernic-rg35xxh.dtb"
+      '';
   };
 
-  # Host-specific packages
   environment.systemPackages = with pkgs; [
     gitMinimal
     #pegasus-frontend
