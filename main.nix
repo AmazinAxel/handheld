@@ -12,9 +12,8 @@
       grub.enable = lib.mkForce false;
       generic-extlinux-compatible.enable = lib.mkForce true;
     };
-    #kernelPackages = pkgs.linuxPackages_latest; # zfs kernel broken right now, do not enable
+    kernelPackages = pkgs.linuxPackages_latest;
   };
-  sdImage.compressImage = false;
 
   hardware.deviceTree = {
     enable = true;
