@@ -18,7 +18,7 @@
         alechandheld = nixosSystem {
           system = "aarch64-linux";
           modules = [
-            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix"
+            "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-new-kernel-no-zfs-installer.nix"
             ./main.nix
           ];
         };
