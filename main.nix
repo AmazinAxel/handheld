@@ -19,7 +19,7 @@
   hardware.deviceTree = {
     enable = false;
     name = "allwinner/h700-anbernic-rg35xxh.dtb";
-    dtbSource = ./sun50i-h700-anbernic-rg35xx-h.dtb;
+    dtbSource = ./dtb;
   };
 
   #boot.kernelPatches =
