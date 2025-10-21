@@ -21,7 +21,7 @@
     };
     #initrd.enable = false;
     kernelPackages = pkgs.linuxPackages_latest;
-    boot.supportedFilesystems.zfs = lib.mkForce false;
+    supportedFilesystems.zfs = lib.mkForce false;
   };
 
   hardware.deviceTree = {
