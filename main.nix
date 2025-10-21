@@ -19,7 +19,7 @@
   hardware.deviceTree = {
     enable = true;
     name = "allwinner/h700-anbernic-rg35xxh.dtb";
-    path = ./sun50i-h700-anbernic-rg35xx-h.dtb
+    path = ./sun50i-h700-anbernic-rg35xx-h.dtb;
   };
 
   # Host-specific packages
