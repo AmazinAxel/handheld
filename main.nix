@@ -6,12 +6,19 @@
   networking.hostName = "alechandheld";
   #home-manager.users.alec.imports = [ ./hm.nix ];
 
+  users.users.alec = { # Default user
+    isNormalUser = true;
+    extraGroups = [ "wheel" "audio" "video" "dialout" ];
+  };
+
+
   nixpkgs.config.allowUnfree = true;
   boot = {
     loader = {
-      grub.enable = lib.mkForce false;
-      generic-extlinux-compatible.enable = lib.mkForce true;
+      grub.enable = false;
+      generic-extlinux-compatible.enable = true;
     };
+    initrd.enable = false;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -19,6 +26,8 @@
     enable = true;
     dtbSource = ./sun50i-h700-anbernic-rg35xx-h.dtb;
   };
+
+  networking.networkmanager.enable = true;
 
   #boot.kernelPatches =
   #  [
