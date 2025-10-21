@@ -17,7 +17,7 @@
   sdImage.compressImage = false;
 
   hardware.deviceTree = {
-    enable = false;
+    enable = true;
     dtbSource = ./sun50i-h700-anbernic-rg35xx-h.dtb;
   };
 
