@@ -15,7 +15,7 @@
 
   nixpkgs.config.allowUnfree = true;
   boot = {
-    boot.supportedFilesystems = [ "squashfs" ];
+    supportedFilesystems = [ "squashfs" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
