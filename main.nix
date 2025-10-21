@@ -15,13 +15,13 @@
 
   nixpkgs.config.allowUnfree = true;
   boot = {
-    supportedFilesystems = [ "squashfs" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
     #initrd.enable = false;
-    #kernelPackages = pkgs.linuxPackages_latest; # dont enable
+    kernelPackages = pkgs.linuxPackages_latest;
+    boot.supportedFilesystems.zfs = lib.mkForce false;
   };
 
   hardware.deviceTree = {
