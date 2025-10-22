@@ -20,7 +20,6 @@
     };
     #initrd.enable = false;
     #kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems.zfs = lib.mkForce false;
   };
 
   hardware.deviceTree = {
